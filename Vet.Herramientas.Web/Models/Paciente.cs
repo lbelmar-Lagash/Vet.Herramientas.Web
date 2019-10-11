@@ -7,6 +7,15 @@ namespace Vet.Herramientas.Web.Models
 {
 	public class Paciente
 	{
+		public Paciente(string nombre, string especie, string raza, string chip, Propietario propietario)
+		{
+			Nombre = nombre;
+			Raza = raza;
+			Chip = chip;
+			Especie = especie;
+			Propietario = propietario;
+		}
+
 		public string Nombre { get; set; }
 		public string Especie { get; set; }
 		public string Chip { get; set; }
@@ -15,5 +24,6 @@ namespace Vet.Herramientas.Web.Models
 		public string Sexo { get; set; }
 		public float Peso { get; set; }
 		public DateTime Nacimiento { get; set; }
+		public Propietario Propietario { get; set; }
 	}
 }
