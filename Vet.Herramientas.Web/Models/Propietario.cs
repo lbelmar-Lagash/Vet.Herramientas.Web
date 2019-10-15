@@ -7,6 +7,11 @@ namespace Vet.Herramientas.Web.Models
 {
 	public class Propietario
 	{
+		public Propietario()
+		{
+
+		}
+
 		public Propietario(string rut, string nombre)
 		{
 			Rut = rut;

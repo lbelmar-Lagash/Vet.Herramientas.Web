@@ -1,0 +1,42 @@
+﻿@model Vet.Herramientas.Web.Models.Propietario
+
+@{
+    ViewData["Title"] = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Propietario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rut)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rut)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Domicilio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Domicilio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
