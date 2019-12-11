@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Dapper;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Vet.Herramientas.Web.Models;
@@ -11,15 +14,17 @@ namespace Vet.Herramientas.Web.Servicios
 
 		public static List<Propietario> ObtenerPropietarios()
 		{
-			var propietarios = new List<Propietario>();
+			using (var connection = new MySqlConnection(@"Server= localhost; Port = 3306; Database = arauco-dev-db;  Uid = root; Pwd = arauco-password;"))
+			{
+				var propietarios = connection.Query<Propietario>(@"select nombre, 
+																	apellido_paterno as ApellidoPaterno, 
+																	apellido_materno as ApellidoMaterno 
+																	from Propietario").ToList();
 
-			propietarios.Add(new Propietario("17538938-5", "Diego Calzadilla"));
-			propietarios.Add(new Propietario("17511938-9", "Juan Campos"));
-			propietarios.Add(new Propietario("12138938-7", "Diego Carrasco"));
-			propietarios.Add(new Propietario("7138937-5", "Cristian Leal"));
-			propietarios.Add(new Propietario("4534338-5", "Abel Soto"));
+				int cantidadPropietarios = connection.Query<int>(@"select count(*) from Propietario").First();
 
-			return propietarios;
+				return propietarios;
+			}
 		}
 
 		public static bool RegistrarPropietario(Propietario propietario)

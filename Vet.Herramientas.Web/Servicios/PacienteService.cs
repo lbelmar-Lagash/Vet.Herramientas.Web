@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Vet.Herramientas.Web.Models;
@@ -10,6 +12,8 @@ namespace Vet.Herramientas.Web.Servicios
 	{
 		public static List<Paciente> ObtenerPacientes(string rutPropietario = null)
 		{
+			
+
 			var pacientes = new List<Paciente>();
 			pacientes.Add(new Paciente("Mishi","Gato","Desconocido","8763546478", new Propietario("17538938-5", "Diego Calzadilla")));
 			pacientes.Add(new Paciente("Muñeca","Gato","Tuxedo","833546478", new Propietario("17511938-9", "Juan Campos")));
