@@ -16,6 +16,11 @@ namespace Vet.Herramientas.Web.Models
 			Propietario = propietario;
 		}
 
+		public Paciente()
+		{
+
+		}
+
 		public string Nombre { get; set; }
 		public string Especie { get; set; }
 		public string Chip { get; set; }
