@@ -12,14 +12,29 @@ namespace Vet.Herramientas.Web.Controllers
 {
     public class PropietarioController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+		public IActionResult Index()
+		{
+			return View();
+		}
 
 		public IActionResult Crear()
 		{
+			ViewData["comboboxPacientes"] = PacienteService.ObtenerPacientes();
+
 			return View("Form");
+		}
+
+		public IActionResult Editar(string rut)
+		{
+			//buscar un registro
+			var propietario = new Propietario();
+			propietario.Nombre = "Editado";
+			propietario.ApellidoMaterno = "Editado";
+			propietario.ApellidoPaterno = "Editado";
+
+			ViewData["comboboxPacientes"] = PacienteService.ObtenerPacientes();
+
+			return View("Form", propietario);
 		}
 
 		[HttpPost]

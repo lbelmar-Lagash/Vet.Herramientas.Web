@@ -5,6 +5,13 @@ using System.Threading.Tasks;
 
 namespace Vet.Herramientas.Web.Models
 {
+	public class VistaPrincipalPropietario
+	{
+		public List<Propietario> Propietarios { get; set; }
+
+		public Propietario PropietarioSeleccionado { get; set; }
+	}
+
 	public class Propietario
 	{
 		public Propietario()
@@ -17,7 +24,8 @@ namespace Vet.Herramientas.Web.Models
 			Rut = rut;
 			Nombre = nombre;
 		}
-
+		
+		public string NombreMascota { get; set; }
 		public string Rut { get; set; }
 		public string Nombre { get; set; }
 		public string ApellidoPaterno { get; set; }

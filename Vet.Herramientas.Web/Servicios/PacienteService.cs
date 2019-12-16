@@ -21,7 +21,7 @@ namespace Vet.Herramientas.Web.Servicios
 			pacientes.Add(new Paciente("Laucha", "Perro", "Blanco", null, new Propietario("7138937-5", "Cristian Leal")));
 			pacientes.Add(new Paciente("Chicho","Gato","Tuxedo","8763546478", new Propietario("4534338-5", "Abel Soto")));
 
-			pacientes = pacientes.Where(p => string.IsNullOrWhiteSpace(rutPropietario) && p.Propietario.Rut == rutPropietario).ToList();
+			pacientes = pacientes.Where(p => string.IsNullOrWhiteSpace(rutPropietario) || p.Propietario.Rut == rutPropietario).ToList();
 			return pacientes;
 		}
 
